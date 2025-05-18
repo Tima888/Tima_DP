@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Видалення новини {% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="features">
+        <h1 class="form-title">Видалення новини</h1>
+       <form method="post">
+           {% csrf_token %}
+           <button class="btn btn-danger" type="submit">!!!Видалити новину!!!</button>
+    </form>
+    </div>
+{% endif %}
+{% endblock %}
+
