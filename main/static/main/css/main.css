@@ -64,3 +64,29 @@ form {
     margin-top: 50px;
 }
 
+.features-container .alert {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.feature-img {
+    max-width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+

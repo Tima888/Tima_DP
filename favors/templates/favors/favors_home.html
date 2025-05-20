@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block title %} favors {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Послуги</h1>
+        <p> Виберіть тип комп'ютерної техніки.</p>
+        <div class="features-container">
+
+        {% for el in equipment %}
+    <div class="alert alert-warning text-center">
+    <h3>{{ el.name }}</h3>
+    {% if el.image %}
+        <img src="{{ el.image.url }}" alt="{{ el.name }}" class="feature-img">
+    {% else %}
+        <p>Зображення відсутнє</p>
+    {% endif %}
+    <a href="{% url 'equipment_detail' el.id %}" class="btn btn-warning">Детальніше</a>
+</div>
+{% endfor %}
+
+        </div>
+    </div>
+
+  {% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Послуги{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Послуги</h1>
+    <p>Виберіть послугу.</p>
+    <div class="features-container">
+
+        {% for el in favors %}
+            <div class="alert alert-warning text-center">
+                <h3>{{ el.title_f }}</h3>
+                <p>{{ el.description_f }}</p>
+                <p>Ціна: {{ el.price }}</p>
+                 <p>Час: {{ el.duration }}</p>
+            {% if el.image %}
+                 <img src="{{ el.image.url }}" alt="{{ el.title_f }}" class="feature-img">
+            {% else %}
+             <p>Зображення відсутнє</p>
+            {% endif %}
+
+            <a href="{% url 'equipment_detail' el.id %}" class="btn btn-warning">Детальніше</a>
+            </div>
+        {% empty %}
+            <p>Послуг поки немає.</p>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
+

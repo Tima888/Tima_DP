@@ -8,4 +8,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('news/', include('news.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('favors/', include('favors.urls')),
+]
+
+# Підключення статичних файлів (CSS, JS)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# Підключення медіа-файлів (завантажені картинки тощо)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
