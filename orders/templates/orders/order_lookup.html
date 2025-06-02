@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Перевірка статусу замовлення{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Перевірка статусу замовлення</h2>
+    <form method="post" class="mb-3">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="order_id" class="form-label">Введіть номер замовлення:</label>
+            <input type="text" name="order_id" id="order_id" class="form-control" required>
+        </div>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Перевірити статус</button>
+    </form>
+    <a href="{% url 'home' %}" class="btn btn-secondary">← Повернутися на головну</a>
+</div>
+{% endblock %}

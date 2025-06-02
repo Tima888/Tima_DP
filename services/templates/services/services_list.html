@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Сервіси{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Сервіси</h1>
+    <div class="features-container">
+        {% for service in services %}
+            <div class="alert alert-warning text-center">
+                <h3>{{ service.name }}</h3>
+                {% if service.image %}
+                    <img src="{{ service.image.url }}" alt="{{ service.name }}" class="feature-img">
+                {% endif %}
+                <p><strong>Адреса:</strong> {{ service.address }}</p>
+                <p><strong>Графік роботи:</strong> {{ service.work_time }}</p>
+                <a href="{% url 'service_detail' service.id %}" class="btn btn-warning">Детальніше</a>
+            </div>
+        {% empty %}
+            <p>Немає доступних сервісів.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

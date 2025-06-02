@@ -1,0 +1,10 @@
+{% extends 'main/layout.html' %}
+{% block title %}Дякуємо{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Дякуємо!</h2>
+    <p>Ваша заявка на ремонт для "{{ service.name }}" успішно відправлена.</p>
+    <a href="{% url 'services_list' %}" class="btn btn-primary">Повернутися до сервісів</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+{% block title %}Статус замовлення{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Статус замовлення №{{ order.id }}</h2>
+    <p><strong>Ім’я:</strong> {{ order.name }}</p>
+    <p><strong>Email:</strong> {{ order.email }}</p>
+    <p><strong>Сервіс:</strong> {{ order.service.name }}</p>
+    <p><strong>Опис:</strong> {{ order.description }}</p>
+    <p><strong>Створено:</strong> {{ order.created_at }}</p>
+    <p><strong>Статус:</strong> {{ order.get_status_display }}</p>
+
+    <a href="{% url 'order_lookup' %}" class="btn btn-secondary">← Назад</a>
+</div>
+{% endblock %}

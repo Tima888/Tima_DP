@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Залишити заявку {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="features">
+        <h1 class="form-title">Заявка для сервісу: "{{ service.name }}"</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.email }}<br>
+            {{ form.description }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Відправити заявку</button>
+        </form>
+    </div>
+{% endif %}
+{% endblock %}

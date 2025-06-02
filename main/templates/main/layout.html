@@ -17,11 +17,23 @@
         <ul>
             <a href="{% url 'home' %}"><li><i class="fa-solid fa-house-user"></i> Головна</li></a>
             <a href="{% url 'favors_home' %}"><li><i class="fa-solid fa-bars"></i> Всі Послуги</li></a>
+            <a href="{% url 'services_list' %}"><li><i class="fa-solid fa-bars"></i> Сервісні центри</li></a>
             <a href="{% url 'news_home' %}"><li><i class="fa-solid fa-newspaper"></i> Новини</li></a>
             <a href=""><li><i class="fa-solid fa-envelope"></i> Контакти</li></a>
             <a href="{% url 'about' %}"><li><i class="fa-solid fa-address-book"></i> Про нас</li></a>
-            <a href=""><li><button class="btn btn-info"><i class="fa-solid fa-plus"></i> Статус замовлення</li></a>
-            {% if user.is_authenticated %}
+            <a href="{% url 'order_lookup' %}"><li><button class="btn btn-info"><i class="fa-solid fa-search"></i> Статус замовлення</button></li></a>
+
+
+            <a href="{% url 'choose_service' %}">
+    <li><button class="btn btn-success">
+        <i class="fa-solid fa-plus"></i> Залишити заявку
+    </button></li>
+</a>
+
+
+            
+            
+                {% if user.is_authenticated %}
             <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fa-solid fa-plus"></i> Додати новину</li></a>
             {% endif %}
         </ul>
